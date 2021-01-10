@@ -1,0 +1,99 @@
+@import "root.css"; 
+
+body{
+    margin: 0;    
+    font-family: "Lato", sans-serif;
+	color: white;
+	background-color: var(--main-bg-color);
+}
+.page{
+    height: 100vh;
+}
+.profile-img{
+	border-radius: 10%;
+
+}
+.profile-left {
+	float: left;
+	width: 15%;
+	height: 165px;
+	padding-right: 50px;
+}
+.profile-right{
+	float: right;
+	padding-left: 50px;	
+	width: 80%;
+}
+.profile-name{
+	display: inline-block;
+    font-size: 75px;
+    font-weight: 700;
+    margin: 0;
+}
+.profile-img{
+	height: 100%;
+}
+.profile-actions{
+	padding-top: 15px;
+}
+.profile-actions button{
+	padding: 5px 20px 5px 20px;
+}
+.main-content{
+	color: white;
+	float: left;
+	width: 100%;
+}
+.right{
+	float: right;
+	width: 0%;
+}
+.user{
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.250);
+	padding: 50px 250px 50px 250px;
+}
+.user-info{
+    padding: 50px 250px 50px 250px;
+}
+.movies {
+	height: auto;
+}
+.movies ul {
+	padding: 0 0 15px 0;
+	margin: 0;
+}
+.movies li {
+	display: inline-block;
+	padding: 13px;
+}
+.movie-tile {
+	padding: 10px 150px 0 10px;
+	background-color: var(--light-grey);
+	border-radius: 5px;
+}
+.movie-tile-title {
+	font-family: "Lato", sans-serif;
+	font-weight: 500;
+	color: rgb(196, 196, 196);
+	padding: 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.grey{
+	background-color: var(--light-grey);
+}
+.main{
+	background-color: var(--main-bg-color);
+}
+#nav-home-tab{
+	background-color: var(--main-bg-color);
+}
+#nav-profile-tab{
+	background-color: var(--main-bg-color);
+}
+#nav-profile{
+	background-color: var(--main-bg-color);
+}
+

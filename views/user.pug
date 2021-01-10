@@ -1,0 +1,120 @@
+-var title = user.username
+
+doctype html
+head
+    include head
+    +head(title)
+    link(rel='stylesheet' href='/stylesheets/user.css')
+.page
+    #navbar
+        include navbar.pug
+    .main-content
+        .user
+            .profile-left
+                img.profile-img(src='/images/empty_profile.png' alt='')
+            .profile-right
+                h1.profile-name #{title.toLowerCase()}
+                ul.list(style='padding-left: 0;')
+                    li.listElem
+                        a(href="" data-toggle='modal' data-target='#modal-reviews')
+                            span= user.reviews.length 
+                            |  reviews
+                    li.listElem
+                        a(href="" data-toggle='modal' data-target='#modal-followers')
+                            span= user.followers.length
+                            |  followers
+                    li.listElem
+                        a(href="" data-toggle='modal' data-target='#modal-following')
+                            span= user.following.length
+                            |  following
+                if session.loggedin && (session.username == user.username)
+                    #account-type
+                        form(method="POST" action="/switchUserType")
+                            if (user.isContributor)
+                                button#switch-btn.btn.btn-primary(type="submit" value='submit') Switch to Regular
+                                button.btn.btn-primary(type='button' data-toggle='modal' data-target='#CreateMovieModal') Add Movie
+                                button.btn.btn-primary(type='button' data-toggle='modal' data-target='#CreateUserModal') Add User
+                                p Account Type: Contributing
+                            else
+                                button#switch-btn.btn.btn-primary(type="submit" value='submit') Switch to Contributer
+                                p Account Type: Regular
+                else    
+                    .profile-actions
+                        form(method="POST" action="/followUser")
+                            if isFollowing
+                                input(style="display:none", name="state" value="unfollow")
+                                button#follow-button.btn.btn-primary(type="submit" value=user.id) Unfollow
+                            else
+                                input(style="display:none", name="state" value="follow")
+                                button#follow-button.btn.btn-primary(type="submit" value='submit') Follow
+
+
+            
+        .user-info
+            h3 Written Reviews
+            div
+                table.table.table-dark
+                    thead
+                        tr
+                            th(scope='col') Year
+
+
+#modal-followers.modal.fade(tabindex='-1' role='dialog'  aria-hidden='true')
+    .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content.modalCSS
+            .modal-header
+                h5#exampleModalLongTitle.modal-title Followers
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span(aria-hidden='true') &times;
+            .modal-body
+                | ...
+            .modal-footer
+
+#modal-following.modal.fade(tabindex='-1' role='dialog'  aria-hidden='true')
+    .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content.modalCSS
+            .modal-header
+                h5#exampleModalLongTitle.modal-title Following
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span(aria-hidden='true') &times;
+            .modal-body
+                ul.list-group
+                    each follow in user.following
+                        li.list-group-item= follow.name
+                        button#follow-button.btn.btn-danger Unfollow
+
+            .modal-footer
+#CreateMovieModal.modal.fade(tabindex='-1' role='dialog'  aria-hidden='true')
+    .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content.modalCSS
+            .modal-header
+                h5#exampleModalLongTitle.modal-title Add Movie
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span(aria-hidden='true') &times;
+            .modal-body
+                form(action="/movies" method="POST")
+                    .form-group
+                        input#usernameInput.form-control.border-dark.text-muted(type='text' name="title" style='background-color: #2b2b31b9;' placeholder='Title' required)
+                    .form-group
+                        input#passwordInput.form-control.border-dark.text-muted(type='text' name="genre" style='background-color: #2b2b31b9;' placeholder='Genre' required)
+                    .form-group
+                        input#passwordInput.form-control.border-dark.text-muted(type='text' name="directors" style='background-color: #2b2b31b9;' placeholder='Director' required)
+                    .form-group
+                        input#passwordInput.form-control.border-dark.text-muted(type='text' name="actors" style='background-color: #2b2b31b9;' placeholder='Actors' required)
+                    .form-group
+                        input#passwordInput.form-control.border-dark.text-muted(type='text' name="writers" style='background-color: #2b2b31b9;' placeholder='Writers' required)
+                    .form-group
+                        input#passwordInput.form-control.border-dark.text-muted(type='text' name="awards" style='background-color: #2b2b31b9;' placeholder='Awards' required)
+                    .form-group
+                        input#passwordInput.form-control.border-dark.text-muted(type='text' name="plot" style='background-color: #2b2b31b9;' placeholder='Plot' required)
+                    .form-group
+                        input#passwordInput.form-control.border-dark.text-muted(type='text' name="runtime" style='background-color: #2b2b31b9; display: inline; width: 100px; margin-right: 20px' placeholder='Runtime' required)
+                        input#passwordInput.form-control.border-dark.text-muted(type='text' name="country" style='background-color: #2b2b31b9; display: inline; width: 100px; margin-right: 20px' placeholder='Country' required)
+                        input#passwordInput.form-control.border-dark.text-muted(type='text' name="language" style='background-color: #2b2b31b9; display: inline; width: 100px; margin-right: 20px' placeholder='Language' required)
+                        input#passwordInput.form-control.border-dark.text-muted(type='text' name="year" style='background-color: #2b2b31b9; display: inline; width: 100px;' placeholder='Year' required)
+                    .modal-footer
+                        .form-group(style="text-align: center")
+                            button.btn.btn-primary(type="submit" name="submit") Add Movie
+
+script
+    include /public/javascripts/user.js

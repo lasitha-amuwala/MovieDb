@@ -1,0 +1,80 @@
+@import "root.css"; 
+
+html{
+	background-color: var(--main-bg-color);
+}
+body {
+	margin: 0;
+	background-color: var(--main-bg-color);
+}
+.topbar {
+	height: 50px;
+}
+.page {
+	background-color: var(--main-bg-color);
+	width: 100%;
+	color: var(--text-color);
+}
+.main-content {
+	min-height: 100vh;
+}
+.banner {
+	/*height: 300px;*/
+	height: 25px;
+}
+
+.movies {
+	height: auto;
+	padding: 0 50px 0 50px;
+}
+.movies ul {
+	text-align: center;
+	padding: 0 0 15px 0;
+	margin: 0;
+}
+.movies li {
+	display: inline-block;
+	padding: 13px;
+}
+
+.movie-tile {
+	padding: 0;
+	background-color: var(--light-grey);
+	border-radius: 10px;
+	box-shadow: 0 -1px 15px rgba(0, 0, 0, 0.507);
+}
+.movie-tile:hover {
+	cursor: pointer;
+	transition: box-shadow 0.15s linear, opacity 0.15s linear;
+	-webkit-transform: scale(1.05, 1.05);
+	box-shadow: 0 0 15px -1px var(--blue);
+	transition: all 0.15s linear;
+}
+.movie-tile img{
+	height: 300px;
+}
+.movie-tile a, .movie-tile a:hover {
+	text-decoration: none !important;
+	color: inherit;
+}
+.movie-tile-title {
+	font-family: "Lato", sans-serif;
+	font-weight: 500;
+	color: var(--text-color);
+	padding: 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 201px;
+	margin: auto;
+}
+.footer {
+	background-color: var(--light-grey);
+	color: grey;
+	height: 50px;
+	text-align: center;
+}
+.image{
+	border-radius: 10px 10px 0 0;
+	width: 201px;
+}

@@ -1,0 +1,7 @@
+.navbar.navbar-expand-lg.navbar-dark{
+    background-color: rgba(0, 0, 0, 0.200);
+    padding: 0 15px 0 15px;
+}
+.nav-item.active:hover{
+    background-color: aliceblue;
+}

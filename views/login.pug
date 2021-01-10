@@ -1,0 +1,23 @@
+-var title = "Login"
+doctype html
+head
+  include head
+  +head(title)
+  link(rel='stylesheet' href='/stylesheets/login.css')
+.page
+  include navbar
+  .login
+    form(method="POST" action="/logInUser")
+      h1(style='padding-bottom: 25px') MovieDb
+      if session && session.loggedin
+        p(style='padding-right:15px') You're already logged in!
+        a(href="/users/" + session.uid) Go to Profile
+      else
+        p Login
+        .form-group
+          input#usernameInput.form-control.border-dark.text-muted(type='text' name="username" style='background-color: #2b2b31b9;' placeholder='Enter username' required)
+        .form-group
+          input#passwordInput.form-control.border-dark.text-muted(type='password' name="password" style='background-color: #2b2b31b9;' placeholder='Enter password' required)
+          br
+        button.btn.btn-primary(type="submit" value='submit' style='margin-right: 15px') Submit
+        button.btn.btn-primary(type='button' onclick="window.location.href='/signup'" style='margin-left: 15px') Sign Up

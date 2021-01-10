@@ -1,0 +1,170 @@
+@import "root.css"; 
+
+html{
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	background: rgb(24, 24, 24);
+}
+i {
+	color: #007bff;
+	padding-right: 10px;
+}
+.page {
+	background-color: rgb(24, 24, 24);
+	width: 100%;
+	box-sizing: border-box;
+}
+.topbar {
+	height: 50px;
+	background-color: black;
+}
+.page-content {
+	display: inline-block;
+	text-align: center;
+	font-size: 0;
+}
+.main-content{
+	padding: 0;
+    background-color: rgba(0, 0, 0, 0.250);
+}
+.movie-content{
+	display: inline-block;
+	padding: 15px;
+}
+.right {
+	display: inline-block;
+	height: 100%;
+	padding: 15px;
+}
+.left {
+	display: inline-block;
+}
+.extra {
+	background-color: rgb(24, 24, 24);
+	color: var(--text-color);
+	padding: 50px;
+	font-family: "Lato", sans-serif;
+	font-size: 16px;
+	text-align: left;
+}
+#movie-info {
+	padding: 0;
+	text-align: left;
+	color: var(--text-color);
+	font-size: 11px;
+	font-family: "Lato", sans-serif;
+}
+.movie-details{
+	padding-right: 50px;
+}
+#poster-div {
+	padding: 0;
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.507);
+}
+#movie-title-div {
+
+}
+#movie-title {
+	padding-bottom: 0px;
+	margin-bottom: 0;
+	font-weight: 700;
+}
+#genres {
+	font-weight: 400;
+	color: rgba(255, 255, 255, 0.205);
+	padding: 0;
+	padding-bottom: 0;
+}
+#role {
+	font-weight: 600;
+}
+.name, .plot {
+	font-size: 18px;
+	font-weight: 300;
+	margin-left: 10px;
+}
+.name a{
+	padding-right: 10px;
+}
+
+.plot {
+	font-size: 18px;
+	font-weight: 300;
+	margin-left: 0px;
+}
+#cast{
+
+}
+.more{
+	padding: 15px;
+}
+.more-btn{
+	width: 100%;
+	bottom: 0px;
+	padding-top: 50px;
+}
+
+.arrow {
+	width: 20px;
+	height: 20px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg)
+}
+.bounce {
+	animation: bounce 3s infinite;
+	-moz-animation: bounce 3s infinite;
+	-webkit-animation: bounce 3s infinite;
+}
+  
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-30px);
+	}
+	60% {
+		transform: translateY(-15px);
+	}
+}
+
+@media only screen and (min-width: 1000px){
+
+	.main-content{
+		min-height: calc(100vh - 40px);
+		padding: 50px 200px 50px 200px;
+	}
+	.movie-content{
+		display: flex;
+	}
+	#movie-info {
+		padding: 0 0 0px 100px;
+		font-size: 16px;
+	}
+	.right{
+		width: 70%;
+		padding: 0;
+	}
+	.left {
+		width: 30%;
+	}
+	#genres{
+		font-size: 16px;
+	}
+	#movie-title{
+		font-size: 75px;
+		display: inline;
+	}
+	.reviews{
+		width: 100%;
+		padding: 0 150px 0 150px;
+	}
+}

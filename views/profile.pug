@@ -1,0 +1,54 @@
+doctype html
+head
+    include head
+    +head(title)
+    link(rel='stylesheet' href='./stylesheets/myprofile.css')
+.page
+  #navbar
+    include navbar
+  .main-content
+    .user
+      .profile-left
+        img.profile-img(src='./images/empty_profile.png' alt=' ')
+      .profile-right
+        h1.profile-name MyProfile
+        ul.list(style='padding-left: 0;')
+          li.listElem
+            a(href='')
+              span 45
+              |  reviews
+          li.listElem
+            a(href='')
+              span 45
+              |  followers
+          li.listElem
+            a(href='')
+              span 45
+              |  following
+        #account-type
+          button#switch-btn.btn.btn-primary Switch Account
+          p Account Type: Regular
+    .user-info
+      h3 History
+      div
+        table.table.table-dark
+          thead
+            tr
+              th(scope='col') Year
+              th(scope='col') Movie
+              th(scope='col') Role
+          tbody
+            tr
+              th(scope='row') 1992
+              td Mark
+              td Otto
+            tr
+              th(scope='row') 2020
+              td
+                a(href='') Jacob
+              td Thornton
+            tr
+              th(scope='row') 1425
+              td Larry
+              td the Bird
+  .right

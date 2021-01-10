@@ -1,0 +1,23 @@
+:root {
+	--blue: ##007bff;
+	--main-bg-color: rgb(24, 24, 24);
+	--light-grey: #2b2b31b9;
+}
+html{
+	background: var(--main-bg-color);
+}
+body {
+	margin: 0;
+}
+.page {
+	background-color: var(--main-bg-color);
+	width: 100%;
+	color: rgb(196, 196, 196);
+}
+.login {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.205);
+    padding: 50px;
+    margin: 10% 35% 0 35%;
+    border-radius: 25px;
+}

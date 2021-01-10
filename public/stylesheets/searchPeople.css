@@ -1,0 +1,58 @@
+@import "root.css"; 
+
+html{
+	background-color: var(--main-bg-color);
+}
+body {
+	margin: 0;
+	background-color: var(--main-bg-color);
+}
+.topbar {
+	height: 50px;
+}
+.page {
+	background-color: var(--main-bg-color);
+	width: 100%;
+	color: var(--text-color);
+}
+.people{
+    padding: 50px 500px 0 500px;
+    text-align: center;
+}
+.main-content {
+	min-height: 100vh;
+}
+.banner {
+	/*height: 300px;*/
+	height: 25px;
+}
+.search {
+	margin-top: 25px;
+	text-align: center;
+}
+.footer {
+	background-color: var(--light-grey);
+	color: grey;
+	height: 50px;
+	text-align: center;
+}
+.people-table{
+    text-align: center;
+    padding: 15px;
+}
+.table{
+    border-radius: 15px;
+    width: 100%;
+}
+.table th, .table td{
+    border-bottom: 2px solid var(--main-bg-color);
+    border-top: 0;
+}
+a{
+    font-family: "Lato", sans-serif;
+	font-weight: 500;
+}
+.table-dark{
+    background-color: rgb(31, 31, 31);
+}
+

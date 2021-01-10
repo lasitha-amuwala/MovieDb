@@ -1,0 +1,37 @@
+-var title = "Search People"
+doctype html
+head
+  include head
+  +head(title)
+  link(rel='stylesheet' href='./stylesheets/searchPeople.css')
+
+.page
+  #navbar
+  include navbar.pug
+  .main-content
+    .banner
+    .search(style='padding: 0 20% 0 20%;')
+      form( action='' method='GET')
+        .input-group.mb-3
+          input.form-control.border-dark.text-muted(type='text' name='name' style='background-color: #2b2b31b9;' placeholder='Search By Name...' aria-label="Recipient's username" aria-describedby='basic-addon2')
+          .input-group-append(style='border-radius: 15%;')
+            button.btn.btn-outline-primary(type='submit') Search
+    .people
+        table.table.table-dark
+            thead
+                tr
+                    th(scope='col') Name
+            tbody
+                each p in person
+                    tr
+                        th(scope='row')
+                            a(href="/people/" + p._id)= p.name
+
+
+
+              
+  .footer
+    | Movie Database by Lasitha Amuwala 2020
+
+script
+  include /public/javascripts/home.js

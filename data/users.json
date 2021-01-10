@@ -1,0 +1,42 @@
+[
+	{
+		"id": "user0",
+		"username": "lasitha",
+		"password": "password",
+		"isContributor": false,
+		"movieList": [],
+		"following": [{ "id": "user1", "name": "abi123" }, { "id": "user2", "name": "dave" }],
+		"followers": [{ "id": "user1", "name": "abi123" }, { "id": "user2", "name": "dave" }],
+		"reviews": []
+	},
+	{
+		"id": "user1",
+		"username": "abi123",
+		"password": "student",
+		"isContributor": false,
+		"movieList": [],
+		"following": [{ "id": "user0", "name": "lasitha" }, { "id": "user2", "name": "dave" }],
+		"followers": [{ "id": "user0", "name": "lasitha" }],
+		"reviews": []
+	},
+	{
+		"id": "user2",
+		"username": "dave",
+		"password": "pass",
+		"isContributor": false,
+		"movieList": [],
+		"following": [{ "id": "user0", "name": "lasitha" }],
+		"followers": [{ "id": "user0", "name": "lasitha" },{ "id": "user1", "name": "abi123" }],
+		"reviews": []
+	},
+	{
+		"id": "user3",
+		"username": "student",
+		"password": "student",
+		"isContributor": false,
+		"movieList": [],
+		"following": [],
+		"followers": [],
+		"reviews": []
+	}
+]

@@ -1,0 +1,19 @@
+-var title = "signup"
+doctype html
+head
+  include head
+  +head(title)
+  link(rel='stylesheet' href='/stylesheets/login.css')
+.page
+  include navbar
+  .login
+    form(method="POST" action="/signUpUser")
+        h1(style='padding-bottom: 25px') MovieDb
+        p Create your MovieDb account
+        .form-group
+            input#usernameInput.form-control.border-dark.text-muted(type='text' name="username" style='background-color: #2b2b31b9;' placeholder='Enter username' required)
+        .form-group
+            input#passwordInput.form-control.border-dark.text-muted(type='password' name="password" style='background-color: #2b2b31b9;' placeholder='Enter password' required)
+        br
+        button.btn.btn-primary.button(type="submit" value='submit' style='margin-right: 15px') Sign Up
+        button.btn.btn-primary.button(type='button' onclick="window.location.href='/login'" style='margin-left: 15px') Login

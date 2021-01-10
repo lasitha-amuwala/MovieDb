@@ -1,0 +1,90 @@
+- var title = movie.title
+- var genre = movie.genres.toString().split(',').join('\xa0\xa0 | \xa0\xa0')
+
+doctype html
+html(lang='en')
+  include head
+  +head(title)
+  link(rel='stylesheet' href='/stylesheets/movie.css')
+
+body
+  .page
+    #navbar
+    include navbar.pug
+    #page-content.page-content
+      #main-content.main-content
+        .movie-content
+          .left
+            #poster-div
+              img(src=movie.poster id='poster' width='100%' alt='poster-img')
+          .right
+            #movie-info
+              div#movie-title-div
+                h1#movie-title #{title.toUpperCase()}
+              #genres
+                p #{genre.toUpperCase()}
+              div(style='display: flex;  text-align: left;')
+                p.movie-details
+                  i.fa.fa-clock
+                  = movie.runtime
+                p.movie-details
+                  i.fa.fa-comments
+                  = movie.language
+                p.movie-details
+                  i.fa.fa-flag
+                  = movie.country
+                p.movie-details
+                  i.fa.fa-calendar
+                  = movie.released
+              div
+                p#role
+                  span.plot= movie.plot
+              #cast.border-0
+                p#role
+                  | Director:
+                  span.name
+                    each director, index in movie.directors
+                      if index == movie.directors.length-1
+                        a(href='/people/' + director._id)= director.name
+                      else
+                        a(href='/people/' + director._id)= director.name + ","
+                p#role
+                  | Stars:
+                  span.name
+                    each actor, index in movie.actors
+                      if index == movie.actors.length-1
+                        a(href='/people/' + actor._id)= actor.name
+                      else
+                        a(href='/people/' + actor._id)= actor.name + ","
+                p#role
+                  | Writers:
+                  span.name
+                    each writer, index in movie.writers
+                      if index == movie.writers.length-1
+                        a(href='/people/' + writer._id)= writer.name
+                      else
+                        a(href='/people/' + writer._id)= writer.name + ","
+                      
+                p#role
+                  | Awards:
+                  span.name= movie.awards
+        .more-btn.bounce
+          a(href="#extra")
+            i.arrow
+      .extra#extra
+        .reviews
+          h3#movie-reviews REVIEWS
+          ul.list-group
+          each review in movie.reviews
+            li.list-group-item(style='background-color: #2b2b31b9;')
+              h5 
+              |  (Random Text for now) She thought there&apos;d be sufficient time if she hid her watch. Weather is not trivial - its especially important when you&apos;re standing in it. Getting up at dawn is for the birds. The trick to getting kids to eat anything is to put catchup on it. Before he moved to the inner city, he had always believed that security complexes were psychological.
+
+          br
+          .form-group
+            label(for='exampleFormControlTextarea1') Write a Review!
+            textarea#exampleFormControlTextarea1.form-control.border-0.text-white(style='background-color: #2b2b31b9;' rows='3')
+          button.btn.btn-primary Send
+
+script
+  include /public/javascripts/movie.js

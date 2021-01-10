@@ -1,0 +1,25 @@
+doctype html
+head
+  include head
+  +head(title)
+  link(rel='stylesheet' href='/stylesheets/person.css')
+  
+.page
+  #navbar
+    include navbar.pug
+  .main-content
+    .user
+      .profile-left
+        img.profile-img(src='/images/empty_profile.png' alt='empty-profile')
+      .profile-right
+        h1.profile-name
+        p(style='color: grey; margin: 0;')
+        .profile-actions
+          button#follow-button.btn.btn-primary Follow
+    .user-info
+      h3 
+      #person-info
+  .right
+
+script
+  include /public/javascripts/person.js

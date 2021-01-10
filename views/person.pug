@@ -1,0 +1,47 @@
+-var title = person.name
+- 
+doctype html
+head
+  include head
+  +head(title)
+  link(rel='stylesheet' href='/stylesheets/person.css')
+  
+.page
+  #navbar
+    include navbar.pug
+  .main-content
+    .user
+      .profile-left
+        img.profile-img(src='/images/empty_profile.png' alt='empty-profile')
+      .profile-right
+        h1.profile-name= person.name
+        p(style='color: grey; margin: 0;')= person.knownFor
+        .profile-actions
+          button#follow-button.btn.btn-primary Follow
+    .user-info
+      h3 History
+      div
+        table.table.table-dark
+          thead
+            tr
+              th(scope='col') Year
+              th(scope='col') Movie
+              th(scope='col') Role
+              th(scope='col') Released
+          tbody
+            each his in history 
+              tr
+                td(scope='row')= his.year
+                td
+                  a(href="/movies/" + his.id)= his.title
+                td
+                  each role, index in his.roles
+                    if index == his.roles.length-1
+                      span= role 
+                    else
+                      span= role + ', '
+                td= his.released
+          
+
+script
+  include /public/javascripts/person.js

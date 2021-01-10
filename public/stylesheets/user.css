@@ -1,0 +1,118 @@
+@import "root.css";
+
+body {
+	margin: 0;
+	font-family: "Lato", sans-serif;
+	color: white;
+}
+.page {
+	background-color: var(--main-bg-color);
+	height: 100vh;
+}
+.profile-img {
+	border-radius: 10%;
+}
+.profile-left {
+	float: left;
+	width: 15%;
+	height: 165px;
+	padding-right: 50px;
+}
+.profile-right {
+	float: right;
+	padding-left: 50px;
+	width: 80%;
+}
+.profile-name {
+	display: inline-block;
+	font-size: 75px;
+	font-weight: 700;
+	margin: 0;
+}
+.profile-img {
+	height: 100%;
+}
+.profile-actions {
+	padding-top: 15px;
+}
+.profile-actions button {
+	padding: 5px 20px 5px 20px;
+}
+.main-content {
+	color: white;
+	float: left;
+	width: 100%;
+}
+.right {
+	float: right;
+	width: 0%;
+}
+.list {
+	padding-left: 0;
+	margin-bottom: 0;
+}
+.listElem {
+	display: inline;
+	padding-right: 15px;
+}
+.listElem a {
+	color: grey;
+}
+.listElem span {
+	font-weight: bold;
+}
+.user {
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.25);
+	padding: 50px 250px 50px 250px;
+}
+.user-info {
+	padding: 50px 250px 50px 250px;
+}
+.grey {
+	background-color: var(--light-grey);
+}
+.main {
+	background-color: var(--main-bg-color);
+}
+#nav-home-tab {
+	background-color: var(--main-bg-color);
+}
+#nav-profile-tab {
+	background-color: var(--main-bg-color);
+}
+#nav-profile {
+	background-color: var(--main-bg-color);
+}
+#account-type{
+	padding-top: 15px;
+}
+#account-type p{
+	padding-left: 15px;
+	display: inline-block;
+	margin: 0;
+}
+#switch-btn{
+	padding: 5px 20px 5px 20px;
+}
+.modalCSS{
+    background-color: rgb(27, 27, 27);
+    border-radius: 15px;
+
+}
+.list-gorup{
+    background-color: rgb(31 31 31);
+}
+.list-group-item{
+    background-color: rgb(31 31 31);
+}
+.modal-header{
+    border-bottom: 1px solid #474747;
+    text-align: center;
+}
+.modal-footer{
+    border-top: none;
+}
+.btn.btn-primary{
+    margin-right: 15px;
+}

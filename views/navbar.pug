@@ -1,0 +1,19 @@
+link(rel="stylesheet", href="/stylesheets/navbar.css")
+nav.navbar.navbar-expand-lg.navbar-dark
+  a.navbar-brand.text-white(href='/') Movie Database
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item
+        a.nav-link.text-white(href='/movies') Browse Movies
+      li.nav-item
+        a.nav-link.text-white(href='/people') Search People
+      li.nav-item
+        a.nav-link.text-white(href='/users') Search Users
+      if session && session.loggedin
+        li.nav-item
+          a.nav-link.text-white(href='/users/'+ session.uid) Profile
+        li.nav-item
+          a.a.nav-link.text-white(href='/logOutUser') Logout
+      else
+        li.nav-item
+            a.a.nav-link.text-white(href='/login') Login

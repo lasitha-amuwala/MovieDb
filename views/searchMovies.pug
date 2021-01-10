@@ -1,0 +1,74 @@
+- var title = "Browse Movies"
+doctype html
+head
+    include head
+    +head(title)
+    link(rel='stylesheet' href='/stylesheets/searchMovies.css')
+.page
+  #navbar
+  include navbar.pug
+  .main-content
+    .banner
+    .search
+      form(action='' method='GET')
+        .input-group.mb-3
+          input#inputTitle.form-control.border-dark.text-muted.input(type='text' name='title' placeholder='Title' aria-label="Recipient's username" aria-describedby='basic-addon2')
+          select#inputGenre.form-control.custom-select.border-dark.text-muted.input(name='genre')
+            option.bg-dark.text-muted(disabled selected hidden) Genre
+              each genre, val in genres
+                option.bg-dark(type='text' value=val name=val) #{val.charAt(0).toUpperCase() + val.slice(1)}
+          select#inputYear.custom-select.border-dark.text-muted.input(name='year')
+            option.bg-dark.text-muted(disabled selected hidden) Year
+            option.bg-dark(value='2020') 2020
+            option.bg-dark(value='2019') 2019
+            option.bg-dark(value='2018') 2018
+            option.bg-dark(value='2017') 2017
+            option.bg-dark(value='2016') 2016
+            option.bg-dark(value='2015') 2015
+            option.bg-dark(value='2014') 2014
+            option.bg-dark(value='2013') 2013
+            option.bg-dark(value='2012') 2012
+            option.bg-dark(value='2011') 2011
+            option.bg-dark(value='2010') 2010
+            option.bg-dark(value='2009') 2009
+            option.bg-dark(value='2008') 2008
+            option.bg-dark(value='2007') 2007
+            option.bg-dark(value='2006') 2006
+            option.bg-dark(value='2005') 2005
+            option.bg-dark(value='2004') 2004
+            option.bg-dark(value='2003') 2003
+            option.bg-dark(value='2002') 2002
+            option.bg-dark(value='2001') 2001
+            option.bg-dark(value='1999') 1999
+            option.bg-dark(value='1998') 1998
+            option.bg-dark(value='1997') 1997
+            option.bg-dark(value='1996') 1996
+            option.bg-dark(value='1995') 1995
+          select#inputRating.custom-select.border-dark.rounded-0.text-muted.input
+            option.bg-dark.text-muted(disabled selected hidden) Rating
+            option.bg-dark(value='1') 9+
+            option.bg-dark(value='2') 8+
+            option.bg-dark(value='3') 7+
+            option.bg-dark(value='4') 6+
+            option.bg-dark(value='5') 5+
+            option.bg-dark(value='6') 4+
+            option.bg-dark(value='7') 3+
+            option.bg-dark(value='8') 2+
+            option.bg-dark(value='9') 1+
+          button#searchBtn.btn.btn-outline-primary(type='submit') Search
+        
+    p(style='padding-left: 75px;') Movies:
+    #movies.movies
+      ul
+        each movie, index in movieData
+          li
+            .movie-tile
+              a(href='/movies/' + movie._id)
+                img(class="poster" id="poster"+ index src=movie.Poster alt='poster-img')
+                .movie-tile-title(id="movieTitle" + index)= movie.Title
+              
+  .footer
+    | Movie Database by Lasitha Amuwala 2020
+
+script
+  include /public/javascripts/home.js

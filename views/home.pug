@@ -1,72 +1,62 @@
+- var title = "Browse Movies"
 doctype html
 head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title MovieDb
-  link(rel='stylesheet' href='/stylesheets/home.css')
-  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' integrity='sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z' crossorigin='anonymous')
-  link(rel='preconnect' href='https://fonts.gstatic.com')
-  link(href='https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap' rel='stylesheet')
-
-  script(type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js')
-
-
+    include head
+    +head(title)
+    link(rel='stylesheet' href='/stylesheets/searchMovies.css')
 .page
   #navbar
   include navbar.pug
   .main-content
     .banner
-    .search(style='padding: 0 20% 0 20%;')
-      form( action='' method='GET')
+    .search
+      form(action='' method='GET')
         .input-group.mb-3
-          input.form-control.border-dark.text-muted(type='text' name='title' style='background-color: #2b2b31b9;' placeholder='Search...' aria-label="Recipient's username" aria-describedby='basic-addon2')
-          .input-group-append(style='border-radius: 15%; ')
-            select#inputGroupSelect01.custom-select.border-dark.rounded-0.text-muted(placeholder='Genre' name='genre' style='background-color: #2b2b31b9;')
-              option.bg-dark.text-muted(disabled selected hidden) Genre
+          input#inputTitle.form-control.border-dark.text-muted.input(type='text' name='title' placeholder='Title' aria-label="Recipient's username" aria-describedby='basic-addon2')
+          select#inputGenre.form-control.custom-select.border-dark.text-muted.input(name='genre')
+            option.bg-dark.text-muted(disabled selected hidden) Genre
               each genre, val in genres
                 option.bg-dark(type='text' value=val name=val) #{val.charAt(0).toUpperCase() + val.slice(1)}
-          .input-group-append(style='border-radius: 15%;')
-            select#inputGroupSelect01.custom-select.border-dark.rounded-0.text-muted(name='year' style='background-color: #2b2b31b9;')
-              option.bg-dark.text-muted(disabled selected hidden) Year
-              option.bg-dark(value='2020') 2020
-              option.bg-dark(value='2019') 2019
-              option.bg-dark(value='2018') 2018
-              option.bg-dark(value='2017') 2017
-              option.bg-dark(value='2016') 2016
-              option.bg-dark(value='2015') 2015
-              option.bg-dark(value='2014') 2014
-              option.bg-dark(value='2013') 2013
-              option.bg-dark(value='2012') 2012
-              option.bg-dark(value='2011') 2011
-              option.bg-dark(value='2010') 2010
-              option.bg-dark(value='2009') 2009
-              option.bg-dark(value='2008') 2008
-              option.bg-dark(value='2007') 2007
-              option.bg-dark(value='2006') 2006
-              option.bg-dark(value='2005') 2005
-              option.bg-dark(value='2004') 2004
-              option.bg-dark(value='2003') 2003
-              option.bg-dark(value='2002') 2002
-              option.bg-dark(value='2001') 2001
-              option.bg-dark(value='1999') 1999
-              option.bg-dark(value='1998') 1998
-              option.bg-dark(value='1997') 1997
-              option.bg-dark(value='1996') 1996
-              option.bg-dark(value='1995') 1995
-          .input-group-append(style='border-radius: 15%; ')
-            select#inputGroupSelect01.custom-select.border-dark.rounded-0.text-muted(name="rating" style='background-color: #2b2b31b9;')
-              option.bg-dark.text-muted(disabled selected hidden) Rating
-              option.bg-dark(value='9') 9+
-              option.bg-dark(value='8') 8+
-              option.bg-dark(value='7') 7+
-              option.bg-dark(value='6') 6+
-              option.bg-dark(value='5') 5+
-              option.bg-dark(value='4') 4+
-              option.bg-dark(value='3') 3+
-              option.bg-dark(value='2') 2+
-              option.bg-dark(value='1') 1+
-          .input-group-append(style='border-radius: 15%;')
-            button.btn.btn-outline-primary(type='submit') Search
+          select#inputYear.custom-select.border-dark.text-muted.input(name='year')
+            option.bg-dark.text-muted(disabled selected hidden) Year
+            option.bg-dark(value='2020') 2020
+            option.bg-dark(value='2019') 2019
+            option.bg-dark(value='2018') 2018
+            option.bg-dark(value='2017') 2017
+            option.bg-dark(value='2016') 2016
+            option.bg-dark(value='2015') 2015
+            option.bg-dark(value='2014') 2014
+            option.bg-dark(value='2013') 2013
+            option.bg-dark(value='2012') 2012
+            option.bg-dark(value='2011') 2011
+            option.bg-dark(value='2010') 2010
+            option.bg-dark(value='2009') 2009
+            option.bg-dark(value='2008') 2008
+            option.bg-dark(value='2007') 2007
+            option.bg-dark(value='2006') 2006
+            option.bg-dark(value='2005') 2005
+            option.bg-dark(value='2004') 2004
+            option.bg-dark(value='2003') 2003
+            option.bg-dark(value='2002') 2002
+            option.bg-dark(value='2001') 2001
+            option.bg-dark(value='1999') 1999
+            option.bg-dark(value='1998') 1998
+            option.bg-dark(value='1997') 1997
+            option.bg-dark(value='1996') 1996
+            option.bg-dark(value='1995') 1995
+          select#inputRating.custom-select.border-dark.rounded-0.text-muted.input
+            option.bg-dark.text-muted(disabled selected hidden) Rating
+            option.bg-dark(value='1') 9+
+            option.bg-dark(value='2') 8+
+            option.bg-dark(value='3') 7+
+            option.bg-dark(value='4') 6+
+            option.bg-dark(value='5') 5+
+            option.bg-dark(value='6') 4+
+            option.bg-dark(value='7') 3+
+            option.bg-dark(value='8') 2+
+            option.bg-dark(value='9') 1+
+          button#searchBtn.btn.btn-outline-primary(type='submit') Search
+        
     p(style='padding-left: 75px;') Movies:
     #movies.movies
       ul
@@ -74,7 +64,7 @@ head
           li
             .movie-tile
               a(href='/movies/' + movie._id)
-                img(class="image" id="poster"+ index src=movie.poster alt='poster-img')
+                img(class="poster" id="poster"+ index src=movie.poster alt='poster-img')
                 .movie-tile-title(id="movieTitle" + index)= movie.title
               
   .footer

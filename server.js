@@ -1,15 +1,14 @@
-//require('dotenv/config')
+require('dotenv/config')
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-const userData = require("./data/users.json");
+const MONGODB = process.env.DB_CONNECTION ||  process.env.MONGO
 
 //Connect to db
 const mongoose = require('mongoose')
-mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGODB, {useNewUrlParser: true, useUnifiedTopology: true })
 
 const db = mongoose.connection
 db.on('error', (error) => console.error(error))
@@ -73,16 +72,6 @@ app.post("/followUser", followUser);
 app.get("/logOutUser", logOutUser)
 app.post("/signUpUser", signUpUser, logInUser)
 app.post("/logInUser", logInUser);
-
-//User Functions
-var users = {}
-var userNames = {}
-
-userData.forEach(user => {
-    users[user.id] = user;
-    userNames[user.username] = 1;
-})
-
 
 function followUser(req, res){
   let userID

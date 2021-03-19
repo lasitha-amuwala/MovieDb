@@ -1,12 +1,36 @@
 @import "root.css"; 
+html{
+	width: 100%;
+	font-size: 12px;
+}
 
+@media only screen and (min-width: 1000px){
+	.profile-name{
+		display: inline-block;
+		font-size: 75px;
+		font-weight: 700;
+		margin: 0;
+	}
+	.user-info{
+		padding: 50px 250px 50px 250px;
+	}
+	.user{
+		overflow: hidden;
+		background-color: rgba(0, 0, 0, 0.250);
+		padding: 50px 250px 50px 250px;
+		width: 100%;
+	}
+}
 body{
+	min-width: 350px;
     margin: 0;    
     font-family: "Lato", sans-serif;
 	color: white;
 	background-color: var(--main-bg-color);
 }
 .page{
+	width: 100%;
+
     height: 100vh;
 }
 .profile-img{
@@ -24,14 +48,13 @@ body{
 	padding-left: 50px;	
 	width: 80%;
 }
-.profile-name{
-	display: inline-block;
-    font-size: 75px;
-    font-weight: 700;
-    margin: 0;
+
+#table{
+	margin: 10px;
 }
-.profile-img{
-	height: 100%;
+#profile-img{
+	height: 10rem;
+	width: 10rem;
 }
 .profile-actions{
 	padding-top: 15px;
@@ -51,11 +74,10 @@ body{
 .user{
 	overflow: hidden;
 	background-color: rgba(0, 0, 0, 0.250);
-	padding: 50px 250px 50px 250px;
+	padding: 10px;
+	width: 100%;
 }
-.user-info{
-    padding: 50px 250px 50px 250px;
-}
+
 .movies {
 	height: auto;
 }
